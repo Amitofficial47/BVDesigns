@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight, Building, Home as HomeIcon, Sun } from "lucide-react";
 import React from "react";
-import type { Project } from "@/lib/types";
+import type { Project, Testimonial } from "@/lib/types";
+import { TestimonialCard } from "@/components/testimonial-card";
 
 const services = [
 	{
@@ -36,7 +37,7 @@ const services = [
 ];
 
 const heroContent = {
-	image: "/hero.jpg",
+	image: "/about.png",
 	hint: "modern architecture",
 	headline: "Shaping the Future, One Building at a Time.",
 	subtext:
@@ -48,7 +49,7 @@ const allProjects: Project[] = [
 		id: "1",
 		title: "Hotel Grand Hill",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Dalhousie, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A luxurious hotel offering stunning valley views, blending modern amenities with traditional Himachali architecture.",
@@ -63,7 +64,7 @@ const allProjects: Project[] = [
 		id: "2",
 		title: "Azad Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Palampur, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A contemporary family home designed for comfort and elegance, nestled in the serene hills.",
@@ -76,9 +77,9 @@ const allProjects: Project[] = [
 	},
 	{
 		id: "3",
-		title: "Hotel Lux Vista",
+		title: "Hotel Luxe Vista",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Banikhet, Himachal Pradesh",
 		year: 2022,
 		description:
 			"An upscale hotel featuring panoramic windows and minimalist design, catering to the modern traveler.",
@@ -91,14 +92,14 @@ const allProjects: Project[] = [
 	},
 	{
 		id: "4",
-		title: "Balwinder Singh Slaria Residence",
+		title: "Thakur Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Kakiyana, Himachal Pradesh",
 		year: 2022,
 		description:
 			"A spacious and rustic residence that harmonizes with its natural surroundings, using local stone and wood.",
 		images: [
-			"/projects/balwinder-singh-slaria-residence.jpg",
+			"/projects/balwinder-singh-slaria-residence.jpeg",
 			"/projects/balwinder-singh-slaria-residence-2.jpg",
 			"/projects/balwinder-singh-slaria-residence-3.jpg",
 		],
@@ -108,7 +109,7 @@ const allProjects: Project[] = [
 		id: "5",
 		title: "Pankaj Thakur Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Sherpur, Himachal Pradesh",
 		year: 2021,
 		description:
 			"A beautiful villa with a terraced garden, designed to maximize natural light and mountain vistas.",
@@ -123,7 +124,7 @@ const allProjects: Project[] = [
 		id: "6",
 		title: "Hotel Ravi View",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Chamba, Himachal Pradesh",
 		year: 2021,
 		description:
 			"A charming hotel situated by the river, offering a tranquil retreat with classic design elements.",
@@ -136,16 +137,16 @@ const allProjects: Project[] = [
 	},
 	{
 		id: "7",
-		title: "Vijay Thakur Residence",
+		title: "Sharma Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "DeviDehra, Himachal Pradesh",
 		year: 2020,
 		description:
 			"A cozy and compact home featuring smart space solutions and a warm, inviting interior.",
 		images: [
-			"/projects/vijay-thakur-residence.jpg",
-			"/projects/vijay-thakur-residence-2.jpg",
-			"/projects/vijay-thakur-residence-3.jpg",
+			"/projects/sharma-residence.jpg",
+			"/projects/sharma-residence-2.jpg",
+			"/projects/sharma-residence-3.jpg",
 		],
 		hints: ["cozy house", "small house interior", "modern small home"],
 	},
@@ -153,7 +154,7 @@ const allProjects: Project[] = [
 		id: "8",
 		title: "Rahul Residence Saho",
 		category: "residence",
-		location: "Saho, Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Saho, Chamba, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A traditional home in the village of Saho, built with sustainable materials and local craftsmanship.",
@@ -168,7 +169,7 @@ const allProjects: Project[] = [
 		id: "9",
 		title: "Hotel Crown Plaza",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Palampur, Himachal Pradesh",
 		year: 2022,
 		description:
 			"A grand hotel known for its opulent interiors and exceptional hospitality services.",
@@ -183,7 +184,7 @@ const allProjects: Project[] = [
 		id: "10",
 		title: "Mahinder Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Pukhri, Himachal Pradesh",
 		year: 2021,
 		description:
 			"An elegant and modern house with clean lines and a minimalist aesthetic.",
@@ -200,16 +201,16 @@ const allProjects: Project[] = [
 	},
 	{
 		id: "11",
-		title: "Sharma Commercial Complex",
+		title: "Sai Furniture Galleria",
 		category: "commercial",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Palampur, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A modern commercial building housing shops and offices, featuring a glass facade.",
 		images: [
-			"/projects/sharma-commercial-complex.jpg",
-			"/projects/sharma-commercial-complex-2.jpg",
-			"/projects/sharma-commercial-complex-3.jpg",
+			"/projects/sai-commercial-complex.jpg",
+			"/projects/sai-commercial-complex-2.jpg",
+			"/projects/sai-commercial-complex-3.jpg",
 		],
 		hints: ["commercial building", "glass facade", "modern office"],
 	},
@@ -217,7 +218,7 @@ const allProjects: Project[] = [
 		id: "12",
 		title: "Chamba Valley Retreat",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Chamba, Himachal Pradesh",
 		year: 2022,
 		description:
 			"A wellness retreat with cottages, yoga pavilions, and organic gardens for a holistic experience.",
@@ -232,17 +233,50 @@ const allProjects: Project[] = [
 
 const featuredProjects = allProjects.slice(0, 3);
 
+const testimonials: Testimonial[] = [
+	{
+		id: "1",
+		name: "Rajat Sharma",
+		location: "Dalhousie",
+		rating: 5,
+		comment:
+			"B&V Designs transformed our vision into a breathtaking reality. Their attention to detail and commitment to quality is unparalleled. We couldn't be happier with our new home.",
+		image: "/testimonials/rajat-sharma.png",
+		hint: "male portrait",
+	},
+	{
+		id: "2",
+		name: "Priya Singh",
+		location: "Dharamshala",
+		rating: 5,
+		comment:
+			"Working with the B&V team was an absolute pleasure. They are professional, creative, and truly listen to their clients. The result was a space that is both beautiful and functional.",
+		image: "/testimonials/priya-singh.png",
+		hint: "female portrait",
+	},
+	{
+		id: "3",
+		name: "Anil Kumar",
+		location: "Chamba",
+		rating: 5,
+		comment:
+			"The hotel they designed for us has become a landmark. Their innovative approach to blending modern design with local aesthetics is simply brilliant. Highly recommended!",
+		image: "/testimonials/anil-kumar.png",
+		hint: "male headshot",
+	},
+];
+
 export default function Home() {
 	return (
 		<div className="flex flex-col">
-			<section className="relative w-full text-primary-foreground h-[60vh] md:h-[70vh] lg:h-[80vh]">
+			<section className="relative w-full text-white h-[60vh] md:h-[70vh] lg:h-[80vh]">
 				<div className="relative h-full w-full">
-					<div className="absolute inset-0 bg-primary/80 z-10" />
+					<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10" />
 					<Image
 						src={heroContent.image}
 						alt={heroContent.headline}
-						layout="fill"
-						objectFit="cover"
+						fill
+						style={{ objectFit: "cover" }}
 						className="bg-primary"
 						data-ai-hint={heroContent.hint}
 						priority
@@ -251,7 +285,7 @@ export default function Home() {
 						<h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold mb-4 drop-shadow-md">
 							{heroContent.headline}
 						</h1>
-						<p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 font-body">
+						<p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 font-body drop-shadow">
 							{heroContent.subtext}
 						</p>
 						<Button
@@ -267,7 +301,10 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section id="services" className="py-20 lg:py-28 bg-secondary">
+			<section
+				id="services"
+				className="py-20 lg:py-28 bg-gradient-to-br from-secondary via-background to-secondary"
+			>
 				<div className="container mx-auto px-4">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary">
@@ -320,20 +357,20 @@ export default function Home() {
 										<Image
 											src={project.images[0]}
 											alt={project.title}
-											layout="fill"
-											objectFit="cover"
+											fill
+											style={{ objectFit: "cover" }}
 											data-ai-hint={project.hints[0]}
 										/>
 										<div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
 									</div>
-									<CardHeader className="flex-1 flex flex-col justify-center items-center text-center">
+									<CardHeader className="flex-1 flex flex-col justify-center items-start text-left">
 										<CardTitle className="font-headline text-2xl text-primary">
 											{project.title}
 										</CardTitle>
 										<CardDescription>{project.location}</CardDescription>
 									</CardHeader>
 									<CardContent className="flex-grow">
-										<p className="text-muted-foreground line-clamp-3">
+										<p className="text-muted-foreground line-clamp-3 text-justify">
 											{project.description}
 										</p>
 									</CardContent>
@@ -347,7 +384,7 @@ export default function Home() {
 						))}
 					</div>
 					<div className="text-center mt-12">
-						<Button asChild size="lg">
+						<Button asChild size="lg" variant="outline">
 							<Link href="/projects">
 								View All Projects <ArrowRight className="ml-2" />
 							</Link>
@@ -356,7 +393,26 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="bg-primary text-primary-foreground py-20 lg:py-28">
+			<section id="testimonials" className="py-20 lg:py-28 bg-secondary">
+				<div className="container mx-auto px-4">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary">
+							What Our Clients Say
+						</h2>
+						<p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+							We are proud to have earned the trust of our clients. Here's what
+							they have to say about their experience with B&V Designs.
+						</p>
+					</div>
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+						{testimonials.map((testimonial) => (
+							<TestimonialCard key={testimonial.id} testimonial={testimonial} />
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section className="bg-gradient-to-br from-primary to-slate-800 text-primary-foreground py-20 lg:py-28">
 				<div className="container mx-auto px-4 text-center">
 					<h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">
 						Have a Project in Mind?

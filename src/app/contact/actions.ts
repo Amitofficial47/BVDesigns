@@ -11,6 +11,7 @@ const formSchema = z.object({
   email: z.string().email(),
   subject: z.string().min(5),
   message: z.string().min(10),
+  phone: z.string().optional(),
 });
 
 export type FormState = {
@@ -47,6 +48,7 @@ export async function sendContactEmail(
     email: formData.get('email'),
     subject: formData.get('subject'),
     message: formData.get('message'),
+    phone: formData.get('phone'),
   });
 
   if (!validatedFields.success) {
@@ -56,11 +58,11 @@ export async function sendContactEmail(
     };
   }
 
-  const { name, email, subject, message } = validatedFields.data;
+  const { name, email, subject, message, phone } = validatedFields.data;
 
   try {
     const emailHtml = render(
-      ContactFormEmail({ name, email, subject, message })
+      ContactFormEmail({ name, email, subject, message, phone })
     );
 
     const mailOptions = {

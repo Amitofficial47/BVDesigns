@@ -20,7 +20,7 @@ const allProjects: Project[] = [
 		id: "1",
 		title: "Hotel Grand Hill",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Banikhet, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A luxurious hotel offering stunning valley views, blending modern amenities with traditional Himachali architecture.",
@@ -35,7 +35,7 @@ const allProjects: Project[] = [
 		id: "2",
 		title: "Azad Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Palampur, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A contemporary family home designed for comfort and elegance, nestled in the serene hills.",
@@ -50,7 +50,7 @@ const allProjects: Project[] = [
 		id: "3",
 		title: "Hotel Luxe Vista",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Banikhet, Himachal Pradesh",
 		year: 2022,
 		description:
 			"An upscale hotel featuring panoramic windows and minimalist design, catering to the modern traveler.",
@@ -65,14 +65,14 @@ const allProjects: Project[] = [
 		id: "4",
 		title: "Thakur Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Kakiyana, Himachal Pradesh",
 		year: 2022,
 		description:
 			"A spacious and rustic residence that harmonizes with its natural surroundings, using local stone and wood.",
 		images: [
-			"/projects/balwinder-singh-slaria-residence.jpeg",
-			"/projects/balwinder-singh-slaria-residence-2.jpg",
-			"/projects/balwinder-singh-slaria-residence-3.jpg",
+			"/projects/thakur-residence.jpeg",
+			"/projects/thakur-residence-2.jpg",
+			"/projects/thakur-residence-3.jpg",
 		],
 		hints: ["rustic house", "stone house", "wood interior"],
 	},
@@ -80,7 +80,7 @@ const allProjects: Project[] = [
 		id: "5",
 		title: "Pankaj Thakur Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Sherpur, Himachal Pradesh",
 		year: 2021,
 		description:
 			"A beautiful villa with a terraced garden, designed to maximize natural light and mountain vistas.",
@@ -95,7 +95,7 @@ const allProjects: Project[] = [
 		id: "6",
 		title: "Hotel Ravi View",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Dalhousie, Himachal Pradesh",
 		year: 2021,
 		description:
 			"A charming hotel situated by the river, offering a tranquil retreat with classic design elements.",
@@ -110,7 +110,7 @@ const allProjects: Project[] = [
 		id: "7",
 		title: "Sharma Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "DeviDehra, Himachal Pradesh",
 		year: 2020,
 		description:
 			"A cozy and compact home featuring smart space solutions and a warm, inviting interior.",
@@ -125,7 +125,7 @@ const allProjects: Project[] = [
 		id: "8",
 		title: "Rahul Residence Saho",
 		category: "residence",
-		location: "Saho, Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Saho, Chamba, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A traditional home in the village of Saho, built with sustainable materials and local craftsmanship.",
@@ -140,7 +140,7 @@ const allProjects: Project[] = [
 		id: "9",
 		title: "Hotel Crown Plaza",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Dalhousie, Himachal Pradesh",
 		year: 2022,
 		description:
 			"A grand hotel known for its opulent interiors and exceptional hospitality services.",
@@ -155,7 +155,7 @@ const allProjects: Project[] = [
 		id: "10",
 		title: "Mahinder Residence",
 		category: "residence",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Pukhri, Himachal Pradesh",
 		year: 2021,
 		description:
 			"An elegant and modern house with clean lines and a minimalist aesthetic.",
@@ -174,7 +174,7 @@ const allProjects: Project[] = [
 		id: "11",
 		title: "Sai Furniture Galleria",
 		category: "commercial",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Palampur, Himachal Pradesh",
 		year: 2023,
 		description:
 			"A modern commercial building housing shops and offices, featuring a glass facade.",
@@ -189,7 +189,7 @@ const allProjects: Project[] = [
 		id: "12",
 		title: "Chamba Valley Retreat",
 		category: "hotel",
-		location: "Near Dalhousie, Distt. Chamba, Himachal Pradesh",
+		location: "Chamba, Himachal Pradesh",
 		year: 2022,
 		description:
 			"A wellness retreat with cottages, yoga pavilions, and organic gardens for a holistic experience.",
@@ -212,8 +212,8 @@ const ProjectCard = ({ project }: { project: Project }) => (
 				<Image
 					src={project.images[0]}
 					alt={project.title}
-					layout="fill"
-					objectFit="cover"
+					fill
+					style={{ objectFit: "cover" }}
 					data-ai-hint={project.hints[0]}
 				/>
 			</div>
@@ -226,7 +226,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 				<CardDescription>{project.location}</CardDescription>
 			</CardHeader>
 			<CardContent className="flex-grow">
-				<p className="text-muted-foreground line-clamp-3">
+				<p className="text-muted-foreground line-clamp-3 text-justify">
 					{project.description}
 				</p>
 			</CardContent>

@@ -2,7 +2,7 @@
 "use client";
 
 import React, { ComponentType } from "react";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { DraftingCompass, Calculator, Landmark, Sofa, View, Trees, Pen, LucideProps } from "lucide-react";
 import type { Service } from "@/lib/types";
 
@@ -31,7 +31,7 @@ const services: Service[] = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-background">
+    <div className="bg-secondary">
       <div className="container mx-auto px-4 py-16 sm:py-24 lg:py-28">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">Our Services</h1>
@@ -40,20 +40,20 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {services.map((service, index) => {
             const IconComponent = getIconComponent(service.icon);
             return (
-              <Card key={service.id} className="relative group text-left shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-accent bg-secondary/50">
-                <CardHeader className="flex flex-row items-start gap-4">
-                  <div className="text-accent flex-shrink-0">
-                    <IconComponent className="h-10 w-10 mt-1" />
-                  </div>
-                  <div>
-                    <CardTitle className="font-headline text-2xl text-primary mb-2">{service.title}</CardTitle>
-                    <CardDescription className="text-muted-foreground leading-relaxed">{service.description}</CardDescription>
-                  </div>
+              <Card key={service.id} className="relative text-center shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card pt-12">
+                <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground rounded-full p-4 border-4 border-secondary">
+                   <IconComponent className="h-8 w-8" />
+                </div>
+                <CardHeader>
+                  <CardTitle className="font-headline text-2xl text-primary">{service.title}</CardTitle>
                 </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                </CardContent>
               </Card>
             );
           })}

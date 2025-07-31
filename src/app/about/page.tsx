@@ -4,7 +4,8 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
-import type { TeamMember } from "@/lib/types";
+import type { TeamMember, Testimonial } from "@/lib/types";
+import { TestimonialCard } from "@/components/testimonial-card";
 
 const studioValues = [
 	"Innovation",
@@ -18,7 +19,7 @@ const team: TeamMember[] = [
 	{
 		id: "1",
 		name: "Vikas Thakur",
-		role: "Architect & Structural Designer",
+		role: "Architectural Designer",
 		image: "/team/vikas-thakur.jpg",
 		fallback: "VT",
 		hint: "professional portrait",
@@ -26,7 +27,7 @@ const team: TeamMember[] = [
 	{
 		id: "2",
 		name: "Baljinder Singh",
-		role: "Structural Engineer",
+		role: "Structural Designer",
 		image: "/team/baljinder-singh.jpg",
 		fallback: "BS",
 		hint: "professional portrait",
@@ -38,6 +39,39 @@ const team: TeamMember[] = [
 		image: "/team/bovit-singh.jpg",
 		fallback: "BS",
 		hint: "professional portrait",
+	},
+];
+
+const testimonials: Testimonial[] = [
+	{
+		id: "1",
+		name: "Vipan Verma",
+		location: "Dalhousie",
+		rating: 5,
+		comment:
+			"B&V Designs transformed our vision into a breathtaking reality. Their attention to detail and commitment to quality is unparalleled. We couldn't be happier with our new home.",
+		image: "/testimonials/rajat-sharma.png",
+		hint: "male portrait",
+	},
+	{
+		id: "2",
+		name: "Amit Kumar",
+		location: "Dharamshala",
+		rating: 5,
+		comment:
+			"Working with the B&V team was an absolute pleasure. They are professional, creative, and truly listen to their clients. The result was a space that is both beautiful and functional.",
+		image: "/testimonials/priya-singh.png",
+		hint: "female portrait",
+	},
+	{
+		id: "3",
+		name: "Rahul Sharma",
+		location: "Chamba",
+		rating: 5,
+		comment:
+			"The hotel they designed for us has become a landmark. Their innovative approach to blending modern design with local aesthetics is simply brilliant. Highly recommended!",
+		image: "/testimonials/anil-kumar.png",
+		hint: "male headshot",
 	},
 ];
 
@@ -61,7 +95,7 @@ export default function AboutPage() {
 						<h2 className="text-3xl font-headline font-bold text-primary mb-4">
 							Our Philosophy
 						</h2>
-						<p className="text-muted-foreground mb-4 leading-relaxed">
+						<p className="text-muted-foreground mb-4 leading-relaxed text-justify">
 							At B&V Designs, we believe that great architecture is a dialogue
 							between the environment, the community, and the human spirit. Our
 							work is rooted in a deep understanding of context and a commitment
@@ -69,7 +103,7 @@ export default function AboutPage() {
 							strive to push the boundaries of design while remaining grounded
 							in the principles of functionality and sustainability.
 						</p>
-						<p className="text-muted-foreground leading-relaxed">
+						<p className="text-muted-foreground leading-relaxed text-justify">
 							Our collaborative process ensures that every project is a unique
 							reflection of our client's vision, enhanced by our expertise and
 							creative insight. We don't just design buildings; we build
@@ -78,10 +112,10 @@ export default function AboutPage() {
 					</div>
 					<div className="order-1 md:order-2 h-80 md:h-full w-full relative rounded-lg overflow-hidden shadow-xl">
 						<Image
-							src="/projects/about.png"
+							src="/about.png"
 							alt="A modern, well-lit architectural studio office"
-							layout="fill"
-							objectFit="cover"
+							fill
+							style={{ objectFit: "cover" }}
 							data-ai-hint="architect office"
 						/>
 					</div>
@@ -105,7 +139,7 @@ export default function AboutPage() {
 					</div>
 				</section>
 
-				<section>
+				<section className="mb-20">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl font-headline font-bold text-primary">
 							Meet Our Team
@@ -140,6 +174,31 @@ export default function AboutPage() {
 								</CardContent>
 							</Card>
 						))}
+					</div>
+				</section>
+
+				<section
+					id="testimonials"
+					className="bg-secondary py-20 lg:py-28 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
+				>
+					<div className="container mx-auto">
+						<div className="text-center mb-12">
+							<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary">
+								What Our Clients Say
+							</h2>
+							<p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+								We are proud to have earned the trust of our clients. Here's
+								what they have to say about their experience with B&V Designs.
+							</p>
+						</div>
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+							{testimonials.map((testimonial) => (
+								<TestimonialCard
+									key={testimonial.id}
+									testimonial={testimonial}
+								/>
+							))}
+						</div>
 					</div>
 				</section>
 			</div>

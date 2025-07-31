@@ -17,6 +17,7 @@ interface ContactFormEmailProps {
   email: string;
   subject: string;
   message: string;
+  phone?: string;
 }
 
 export const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
@@ -24,6 +25,7 @@ export const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
   email,
   subject,
   message,
+  phone,
 }) => (
   <Html>
     <Head />
@@ -38,6 +40,12 @@ export const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
           <Text style={value}>{name}</Text>
           <Text style={label}>Email Address:</Text>
           <Text style={value}>{email}</Text>
+          {phone && (
+            <>
+              <Text style={label}>Phone Number:</Text>
+              <Text style={value}>{phone}</Text>
+            </>
+          )}
           <Text style={label}>Subject:</Text>
           <Text style={value}>{subject}</Text>
           <Text style={label}>Message:</Text>

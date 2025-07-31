@@ -19,8 +19,8 @@ export function ProjectDetailView({ project }: { project: Project }) {
           <Image
             src={mainImage}
             alt={`Main view of ${project.title}`}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{objectFit: 'cover'}}
             className="transition-transform duration-500 hover:scale-105"
             data-ai-hint={mainImageHint}
             priority
@@ -40,8 +40,8 @@ export function ProjectDetailView({ project }: { project: Project }) {
               <Image
                 src={image}
                 alt={`${project.title} thumbnail ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{objectFit: 'cover'}}
                 data-ai-hint={project.hints[index]}
               />
             </div>
@@ -70,3 +70,5 @@ export function ProjectDetailView({ project }: { project: Project }) {
     </div>
   )
 }
+
+    

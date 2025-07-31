@@ -17,6 +17,7 @@ import { ContactFormEmail } from '@/ai/emails/contact-form-email';
 const SendContactEmailInputSchema = z.object({
   name: z.string().min(2).describe('The name of the person submitting the form.'),
   email: z.string().email().describe('The email address of the person submitting the form.'),
+  phone: z.string().optional().describe('The phone number of the person submitting the form.'),
   subject: z.string().min(5).describe('The subject of the contact message.'),
   message: z.string().min(10).describe('The content of the contact message.'),
 });
@@ -70,6 +71,7 @@ const sendContactEmailFlow = ai.defineFlow(
         ContactFormEmail({
           name: input.name,
           email: input.email,
+          phone: input.phone,
           subject: input.subject,
           message: input.message,
         })
