@@ -44,7 +44,7 @@ function Logo() {
 	return (
 		<Image
 			src={src}
-			alt="B&V Designs Logo"
+			alt="B&V Design Logo"
 			width={40}
 			height={40}
 			className="text-primary"
@@ -65,11 +65,11 @@ function MobileLogo() {
 		return <div style={{ width: 32, height: 32 }} />;
 	}
 
-	const src = resolvedTheme === "dark" ? "/dark-logo.png" : "/logo.png";
+	const src = resolvedTheme === "dark" ? "/white-logo.png" : "/black-logo.png";
 	return (
 		<Image
 			src={src}
-			alt="B&V Designs Logo"
+			alt="B&V Design Logo"
 			width={32}
 			height={32}
 			className="text-primary"
@@ -86,7 +86,7 @@ export function Header() {
 			<div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
 				<Link
 					href="/"
-					className="flex items-center gap-1"
+					className="flex items-center gap-2"
 					onClick={() => setMenuOpen(false)}
 				>
 					<Logo />
@@ -122,7 +122,7 @@ export function Header() {
 								<span className="sr-only">Open menu</span>
 							</Button>
 						</SheetTrigger>
-						<SheetContent side="right" className="w-[36vw] bg-background">
+						<SheetContent side="right" className="w-[80vw] bg-background">
 							<SheetHeader className="border-b pb-4">
 								<SheetTitle className="sr-only">Mobile Menu</SheetTitle>
 								<SheetDescription className="sr-only">
@@ -135,7 +135,7 @@ export function Header() {
 								>
 									<MobileLogo />
 									<span className="text-lg font-headline font-bold text-primary">
-										B&V Designs
+										B&V Design
 									</span>
 								</Link>
 							</SheetHeader>
