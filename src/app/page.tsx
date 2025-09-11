@@ -37,7 +37,7 @@ const services = [
 ];
 
 const heroContent = {
-	image: "/about.png",
+	image: "/hero.jpg",
 	hint: "modern architecture",
 	headline: "Shaping the Future, One Building at a Time.",
 	subtext:

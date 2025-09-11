@@ -112,7 +112,7 @@ export default function AboutPage() {
 					</div>
 					<div className="order-1 md:order-2 h-80 md:h-full w-full relative rounded-lg overflow-hidden shadow-xl">
 						<Image
-							src="/about.png"
+							src="/About.png"
 							alt="A modern, well-lit architectural studio office"
 							fill
 							style={{ objectFit: "cover" }}
